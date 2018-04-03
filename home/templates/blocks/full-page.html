@@ -1,0 +1,32 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% image self.backgroundImage original as bg_image %}
+
+<section class="header5 cid-qNNKebXMHt mbr-fullscreen" style="background-image:url('{{ bg_image.url }}');" id="header5-1g">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center pb-3 mbr-fonts-style display-1">
+                  {{ self.headline }}
+                </h1>
+                <p class="mbr-text align-center display-5 pb-3 mbr-fonts-style">
+                   {{ self.caption }}
+                 </p>
+                <div class="mbr-section-btn align-center">
+                  <a class="btn btn-md btn-primary display-4" href="{% pageurl self.buttonLeftDestination %}">
+                  {{ self.buttonLeftText }}
+                  </a>
+                  <a class="btn btn-md btn-white-outline display-4" href="{% pageurl self.buttonRightDestination %}">
+                    {{ self.buttonRightText }}
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
+        <a href="#next">
+            <i class="mbri-down mbr-iconfont"></i>
+        </a>
+    </div> -->
+</section>

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+
+
+<section class="mbr-section form1 cid-qNyiKhSO16">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="title col-12 col-lg-8">
+        <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+          CONTACT FORM
+        </h2>
+        <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
+          Easily add subscribe and contact forms without any server-side integration.
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="media-container-column col-lg-8">
+        <form class="mbr-form" action="{% pageurl page %}" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field.errors }}
+            {% if field.name == 'message' %}
+
+
+            <div class="form-group">
+              <label class="form-control-label mbr-fonts-style display-7" for="{{ field.html_name }}">{{ field.label }}</label>
+              <textarea type="text" class="form-control" name="{{ field.label }}" rows="7" id="{{ field.id_for_label }}"></textarea>
+            </div>
+
+            {% elif field.name == 'type_of_service' %}
+
+            <div class="form-group">
+              <label class="form-control-label mbr-fonts-style display-7" for="{{ field.id_for_label }}">{{ field.label }}</label>
+              <select class="form-control" id="{{ field.id_for_label }}" name="{{ field.html_name }}">
+                {% for o in field %}
+                 <option value="{{ o.id }}">{{ o }}</option>
+                {% endfor %}
+               </select>
+            </div>
+
+            {% else %}
+
+            <div class="form-group">
+              <label class="form-control-label mbr-fonts-style display-7" for="{{ field.id_for_label }}">{{ field.label }}</label>
+              <input {% if field.label == 'Email' %} type="email" {% else %} type="text" {% endif %} name="{{ field.html_name }}" class="form-control" id="{{ field.id_for_label }}">
+            </div>
+
+            {% endif %}
+
+
+          {% endfor %}
+
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary btn-form display-4">SEND</button>
+          </span>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

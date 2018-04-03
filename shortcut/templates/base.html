@@ -1,0 +1,76 @@
+{% load static wagtailuserbar navigation_tags %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/gallery/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/shortcut.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+        {% block header %}
+          {# Header contains the main_navigation block #}
+          {% include "header.html" with parent=site_root calling_page=self %}
+        {% endblock header %}
+
+        {% block content %}{% endblock %}
+
+        {% include "footer.html" %}
+
+        {# Global javascript #}
+        <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+        <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+        <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+        <script src="{% static 'assets/mbr-popup-btns/mbr-popup-btns.js' %}"></script>
+        <script src="{% static 'assets/ytplayer/jquery.mb.ytplayer.min.js' %}"></script>
+        <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+        <script src="{% static 'assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+        <script src="{% static 'assets/dropdown/js/script.min.js' %}"></script>
+        <script src="{% static 'assets/vimeoplayer/jquery.mb.vimeo_player.js' %}"></script>
+        <script src="{% static 'assets/theme/js/script.js' %}"></script>
+        <script src="{% static 'assets/slidervideo/script.js' %}"></script>
+        <script src="{% static 'assets/formoid/formoid.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/shortcut.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

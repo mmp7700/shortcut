@@ -1,0 +1,21 @@
+{% load wagtailcore_tags %}
+
+<section class="features18 popup-btn-cards cid-qMoVIKEJ0R" id="features18-k">
+    <div class="container">
+      {% for block in value %}
+        {% if block.block_type == 'headline' %}
+          <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">{{ block }}</h2>
+        {% endif %}
+        {% if block.block_type == 'caption' %}
+          <h3 class="mbr-section-subtitle display-5 align-center mbr-fonts-style mbr-light">{{ block }}</h3>
+        {% endif %}
+      {% endfor %}
+        <div class="media-container-row pt-5 ">
+          {% for block in value %}
+            {% if block.block_type == 'item' %}
+              {% include_block block %}
+            {% endif %}
+          {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,20 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% image value.image original as heroImage %}
+
+<div class="card p-3 col-12 col-md-6 col-lg-4">
+    <div class="card-wrapper">
+        <div class="card-img">
+            <div class="mbr-overlay"></div>
+            <div class="mbr-section-btn text-center"><a href="https://mobirise.com" class="btn btn-black display-4">View Portfolio</a></div>
+            <img src="{{ heroImage.url }}" alt="Mobirise">
+        </div>
+        <div class="card-box">
+            <h4 class="card-title mbr-fonts-style display-7">
+              {{ value.title }}
+            </h4>
+            <p class="mbr-text mbr-fonts-style display-7">
+              {{ value.caption }}
+            </p>
+        </div>
+    </div>
+</div>

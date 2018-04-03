@@ -1,0 +1,28 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% image self.backgroundImage original as bg_image %}
+
+<section class="header1 cid-qMoKnINkYV" style="background-image:url('{{ bg_image.url }}');" id="header1-h">
+  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);">
+  </div>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="mbr-white col-md-10">
+        <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">
+          {{ self.headline }}
+        </h1>
+        <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
+          {{ self.caption }}
+        </p>
+        <div class="mbr-section-btn align-center">
+          <a class="btn btn-md btn-primary display-4" href="{{ self.buttonLeftDestination }}">
+          {{ self.buttonLeftText }}
+          </a>
+          <a class="btn btn-md btn-white-outline display-4" href="{{ self.buttonRightDestination }}">
+            {{ self.buttonRightText }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
