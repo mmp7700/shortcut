@@ -50,13 +50,13 @@ class coloredInterstitial(StructBlock):
 
 
 class BasicHeaderBackground(StructBlock):
-    backgroundImage = ImageChooserBlock()
-    headline = TextBlock()
-    caption = TextBlock()
-    buttonLeftText = TextBlock()
-    buttonRightText = TextBlock()
-    buttonLeftDestination = PageChooserBlock(required=True)
-    buttonRightDestination = PageChooserBlock(required=True)
+    backgroundImage = ImageChooserBlock(required=True)
+    headline = TextBlock(required=False)
+    caption = TextBlock(required=False)
+    buttonLeftText = TextBlock(required=False)
+    buttonRightText = TextBlock(required=False)
+    buttonLeftDestination = PageChooserBlock(required=False)
+    buttonRightDestination = PageChooserBlock(required=False)
 
     class Meta:
         template = 'blocks/basic-header.html'
