@@ -134,6 +134,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+AWS_STORAGE_BUCKET_NAME=shortcutdigital
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "shortcut"
