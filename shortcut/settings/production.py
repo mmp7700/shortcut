@@ -11,7 +11,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 DATABASES = {'default': dj_database_url.config()}
 DATABASES['default']['CONN_MAX_AGE'] = 500
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % ['AWS_STORAGE_BUCKET_NAME']
 
 MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 
